@@ -28,7 +28,6 @@
 		DB44C8262A679C1900941DB9 /* tvshow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C8252A679C1900941DB9 /* tvshow.swift */; };
 		DB68BEBD2A6836C700272906 /* Tvshow+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68BEBB2A6836C700272906 /* Tvshow+CoreDataClass.swift */; };
 		DB68BEBE2A6836C700272906 /* Tvshow+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68BEBC2A6836C700272906 /* Tvshow+CoreDataProperties.swift */; };
-		DB68BEC22A68614500272906 /* ApiArchitect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68BEC12A68614500272906 /* ApiArchitect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +73,6 @@
 		DB44C8252A679C1900941DB9 /* tvshow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvshow.swift; sourceTree = "<group>"; };
 		DB68BEBB2A6836C700272906 /* Tvshow+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tvshow+CoreDataClass.swift"; path = "../Tvshow+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB68BEBC2A6836C700272906 /* Tvshow+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tvshow+CoreDataProperties.swift"; path = "../Tvshow+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DB68BEC12A68614500272906 /* ApiArchitect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiArchitect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +170,6 @@
 			children = (
 				DB44C81F2A67969100941DB9 /* Observable.swift */,
 				DB44C8232A6797C700941DB9 /* ApiManager.swift */,
-				DB68BEC12A68614500272906 /* ApiArchitect.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -345,7 +342,6 @@
 				DB44C7E12A671DEE00941DB9 /* MovieViewController.swift in Sources */,
 				DB44C7DD2A671DEE00941DB9 /* AppDelegate.swift in Sources */,
 				DB44C8202A67969100941DB9 /* Observable.swift in Sources */,
-				DB68BEC22A68614500272906 /* ApiArchitect.swift in Sources */,
 				DB44C8262A679C1900941DB9 /* tvshow.swift in Sources */,
 				DB44C8242A6797C700941DB9 /* ApiManager.swift in Sources */,
 				DB44C81A2A67529600941DB9 /* ShowsTableViewCell.swift in Sources */,

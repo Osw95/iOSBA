@@ -23,6 +23,8 @@ class MovieViewController: UIViewController {
         
         MovieTable.delegate = self
         
+        viewModel.getMovies()
+        
         configureTable()
         
     }

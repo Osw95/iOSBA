@@ -14,9 +14,24 @@ final class MovieTableViewModel{
     
     func getMovies(){
         
-        var dataConsulted:[tvshow]?
         
+        let consumedApi = "search/shows?q=a"
         
+        //var dataConsulted:[tvshow]?
+        
+        ApiManager().load(resource: consumedApi) { (result: APIResult<[tvshow]>) in
+    
+        switch result {
+            
+            case .success(let show):
+            print("Nombre: \(show[0].show.name), Score: \(String(describing: show[0].score))")
+            
+            case .failure(let error):
+                print("Error al obtener los datos: \(error)")
+            
+        }
+            
+        }
         
     }
     

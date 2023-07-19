@@ -13,8 +13,10 @@ enum APIResult<T: Decodable> {
 }
 
 final class ApiManager {
+    
+    private let urlBase = "https://api.tvmaze.com/"
 
-    func load<T: Decodable>(resource: URL?, completion: @escaping (APIResult<T>) -> ()) {
+    func load<T: Decodable>(resource: String?, completion: @escaping (APIResult<[T]>) -> ()) {
         
         var task:URLSessionDataTask!
         
@@ -22,7 +24,19 @@ final class ApiManager {
             task.cancel()
         }
         
-        guard let url =  resource else { return }
+        guard let urlSearch =  resource else { return }
+        
+        var urlConstructor = urlBase + urlSearch
+        
+        #if DEBUG
+
+           print("Url consulted: \(urlConstructor)")
+
+        #endif
+        
+        var url = URL(string: urlConstructor)
+        
+        guard let url =  url else { return }
         
         task = URLSession.shared.dataTask(with: url) { data, response, error in
             
@@ -36,11 +50,13 @@ final class ApiManager {
                     
                     let decoder = JSONDecoder()
                 
-                    let object = try decoder.decode(T.self, from: data)
+                    let object = try decoder.decode([T].self, from: data)
                     
                     completion(.success(object))
                     
                 }catch{
+                    
+                    print("Fue en el decoder")
                     
                     completion(.failure(error))
                 }
