@@ -9,7 +9,7 @@ import Foundation
 
 final class Observable<T>{
     
-    ///Value es el que tiene el valor y value es el que consultas para dar ese valor y al que le vuelves asignar el valor
+    ///Value es el que tiene el valor y listener es el que consultas para dar ese valor y al que le vuelves asignar el valor
     ///Es algo extraño porque tienes que recordar que la instancia mantiene su valor en memoria
     ///La clave esta en el init y listener, el listener es privado porque solo lo ocupamos literal para que te notifique que se cambio un valor
     

@@ -7,9 +7,18 @@
 
 import UIKit
 
-class MovieTableViewModel{
+final class MovieTableViewModel{
     
     var tvShows: Observable<[tvshow]> = Observable([])
+    
+    
+    func getMovies(){
+        
+        var dataConsulted:[tvshow]?
+        
+        
+        
+    }
     
 
 }

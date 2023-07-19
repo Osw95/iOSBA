@@ -2,7 +2,7 @@
 //  Tvshow+CoreDataProperties.swift
 //  iOSBA
 //
-//  Created by Oswaldo Ferral Mejia on 19/07/23.
+//  Created by Oswaldo Ferral on 19/07/23.
 //
 //
 
@@ -16,13 +16,9 @@ extension Tvshow {
         return NSFetchRequest<Tvshow>(entityName: "Tvshow")
     }
 
-    @NSManaged public var id: Int64
     @NSManaged public var favorite: Bool
-    @NSManaged public var tvshowToGenre: Set<Genre>?
-    public var genre: [Genre]{
-        let setOfGenre = tvshowToGenre
-        return setOfGenre?.sorted{ $0.id > $1.id }
-    }
+    @NSManaged public var id: Int64
+    @NSManaged public var tvshowToGenre: NSSet?
 
 }
 
