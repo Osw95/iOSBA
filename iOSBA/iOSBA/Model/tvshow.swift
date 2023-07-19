@@ -23,10 +23,16 @@ struct showInfo:Codable{
     let status: String
     let officialSite: String?
     let image:imageShowInfo?
+    let externals: external?
     let summary:String?
 }
 
 struct imageShowInfo: Codable{
     let medium: String?
     let original: String?
+}
+
+///https://www.imdb.com/title/tt2622990/
+struct external: Codable {
+    let imdb: String?
 }

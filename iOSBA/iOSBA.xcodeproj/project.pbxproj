@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8277D5562A67BE1D0098349A /* Tvshow+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277D5542A67BE1D0098349A /* Tvshow+CoreDataClass.swift */; };
+		8277D5572A67BE1D0098349A /* Tvshow+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277D5552A67BE1D0098349A /* Tvshow+CoreDataProperties.swift */; };
 		DB44C7DD2A671DEE00941DB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C7DC2A671DEE00941DB9 /* AppDelegate.swift */; };
 		DB44C7DF2A671DEE00941DB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C7DE2A671DEE00941DB9 /* SceneDelegate.swift */; };
 		DB44C7E12A671DEE00941DB9 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C7E02A671DEE00941DB9 /* MovieViewController.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8277D5542A67BE1D0098349A /* Tvshow+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tvshow+CoreDataClass.swift"; path = "iOSBA/Model/CoreData/Tvshow+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8277D5552A67BE1D0098349A /* Tvshow+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tvshow+CoreDataProperties.swift"; path = "iOSBA/Model/CoreData/Tvshow+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB44C7D92A671DEE00941DB9 /* iOSBA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSBA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB44C7DC2A671DEE00941DB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB44C7DE2A671DEE00941DB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 		DB44C7D02A671DEE00941DB9 = {
 			isa = PBXGroup;
 			children = (
+				8277D5542A67BE1D0098349A /* Tvshow+CoreDataClass.swift */,
+				8277D5552A67BE1D0098349A /* Tvshow+CoreDataProperties.swift */,
 				DB44C7DB2A671DEE00941DB9 /* iOSBA */,
 				DB44C7F52A671DF000941DB9 /* iOSBATests */,
 				DB44C7FF2A671DF000941DB9 /* iOSBAUITests */,
@@ -335,9 +341,11 @@
 				DB44C7E12A671DEE00941DB9 /* MovieViewController.swift in Sources */,
 				DB44C7DD2A671DEE00941DB9 /* AppDelegate.swift in Sources */,
 				DB44C8202A67969100941DB9 /* Observable.swift in Sources */,
+				8277D5562A67BE1D0098349A /* Tvshow+CoreDataClass.swift in Sources */,
 				DB44C8262A679C1900941DB9 /* tvshow.swift in Sources */,
 				DB44C8242A6797C700941DB9 /* ApiManager.swift in Sources */,
 				DB44C81A2A67529600941DB9 /* ShowsTableViewCell.swift in Sources */,
+				8277D5572A67BE1D0098349A /* Tvshow+CoreDataProperties.swift in Sources */,
 				DB44C8162A674AA800941DB9 /* FavoritesViewController.swift in Sources */,
 				DB44C81C2A67904C00941DB9 /* MovieTableViewModel.swift in Sources */,
 				DB44C7DF2A671DEE00941DB9 /* SceneDelegate.swift in Sources */,
