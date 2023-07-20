@@ -127,8 +127,6 @@ extension FavoritesViewController:UITableViewDataSource{
             
         }
         
-       
-            
         return cell
         
     }
@@ -140,6 +138,50 @@ extension FavoritesViewController:UITableViewDataSource{
 
 extension FavoritesViewController:UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var infoSend:infoDetail = infoDetail()
+        
+        infoSend.name = viewModel.tvShowFavorites.value?[indexPath.row].name
+        
+        infoSend.language = viewModel.tvShowFavorites.value?[indexPath.row].language
+        
+        infoSend.score = viewModel.tvShowFavorites.value?[indexPath.row].score
+        
+        infoSend.summary = viewModel.tvShowFavorites.value?[indexPath.row].summary
+        
+        infoSend.image = viewModel.tvShowFavorites.value?[indexPath.row].imageOriginal
+        
+        infoSend.type = viewModel.tvShowFavorites.value?[indexPath.row].type
+        
+        infoSend.imdb = viewModel.tvShowFavorites.value?[indexPath.row].imdb
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "InfoViewVC") as? InfoViewController {
+            
+            vc.infoData = infoSend
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+         }
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let delete = UIContextualAction(style: .destructive , title: "Delete") { _ , _ , _ in
+            
+            guard let dataToFav = self.viewModel.tvShowFavorites.value?[indexPath.row] else { return }
+            
+            //self.alertDelete("¿Estas seguro de eliminarlo de favoritos?", "", dataToFav)
+            
+        }
+        
+        let swipe = UISwipeActionsConfiguration(actions: [delete])
+        
+        return swipe
+        
+    }
 
     
 }
