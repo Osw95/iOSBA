@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82E183CD2A68EC7100DACF8A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E183CC2A68EC7100DACF8A /* InfoViewController.swift */; };
+		82E183CF2A68ED2C00DACF8A /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E183CE2A68ED2C00DACF8A /* InfoView.xib */; };
 		DB44C7DD2A671DEE00941DB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C7DC2A671DEE00941DB9 /* AppDelegate.swift */; };
 		DB44C7DF2A671DEE00941DB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C7DE2A671DEE00941DB9 /* SceneDelegate.swift */; };
 		DB44C7E12A671DEE00941DB9 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C7E02A671DEE00941DB9 /* MovieViewController.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82E183CC2A68EC7100DACF8A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = iOSBA/Controllers/InfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		82E183CE2A68ED2C00DACF8A /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		DB44C7D92A671DEE00941DB9 /* iOSBA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSBA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB44C7DC2A671DEE00941DB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB44C7DE2A671DEE00941DB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				DB44C7E02A671DEE00941DB9 /* MovieViewController.swift */,
+				82E183CC2A68EC7100DACF8A /* InfoViewController.swift */,
 				DB44C8152A674AA800941DB9 /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
@@ -199,6 +204,7 @@
 				DB44C8172A674E6800941DB9 /* ShowsTableViewCell.xib */,
 				DB44C8192A67529600941DB9 /* ShowsTableViewCell.swift */,
 				DB44C81D2A67950600941DB9 /* CustomImageView.swift */,
+				82E183CE2A68ED2C00DACF8A /* InfoView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 			files = (
 				DB44C7EC2A671DEF00941DB9 /* LaunchScreen.storyboard in Resources */,
 				DB44C8182A674E6800941DB9 /* ShowsTableViewCell.xib in Resources */,
+				82E183CF2A68ED2C00DACF8A /* InfoView.xib in Resources */,
 				DB44C7E92A671DEF00941DB9 /* Assets.xcassets in Resources */,
 				DB44C7E42A671DEE00941DB9 /* Main.storyboard in Resources */,
 			);
@@ -339,6 +346,7 @@
 				DB44C7E72A671DEE00941DB9 /* iOSBA.xcdatamodeld in Sources */,
 				DB44C8222A6796DB00941DB9 /* FavoriteTableViewModel.swift in Sources */,
 				DB44C81E2A67950600941DB9 /* CustomImageView.swift in Sources */,
+				82E183CD2A68EC7100DACF8A /* InfoViewController.swift in Sources */,
 				DB44C7E12A671DEE00941DB9 /* MovieViewController.swift in Sources */,
 				DB44C7DD2A671DEE00941DB9 /* AppDelegate.swift in Sources */,
 				DB44C8202A67969100941DB9 /* Observable.swift in Sources */,

@@ -23,7 +23,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="C6m-yo-N3p" secondAttribute="top" id="2B0-ms-vTp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="C6m-yo-N3p" secondAttribute="bottom" id="jw5-vf-4L3"/>
@@ -46,8 +46,9 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="igO-QS-W9h" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fGL-xU-Lwx">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="Le3-NI-xHt" kind="relationship" relationship="viewControllers" id="ZfP-kB-zs9"/>
@@ -65,14 +66,41 @@
                     <view key="view" contentMode="scaleToFill" id="sSD-lx-LbO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EhA-yR-0qd">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PU2-WI-Zo8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="EhA-yR-0qd" firstAttribute="bottom" secondItem="PU2-WI-Zo8" secondAttribute="bottom" id="5vo-wm-CV6"/>
+                            <constraint firstItem="EhA-yR-0qd" firstAttribute="top" secondItem="PU2-WI-Zo8" secondAttribute="top" id="NeJ-5z-W0F"/>
+                            <constraint firstItem="EhA-yR-0qd" firstAttribute="trailing" secondItem="PU2-WI-Zo8" secondAttribute="trailing" id="PMz-c2-TeS"/>
+                            <constraint firstItem="EhA-yR-0qd" firstAttribute="leading" secondItem="PU2-WI-Zo8" secondAttribute="leading" id="shD-O1-F3T"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IpR-qk-SCZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiD-Gs-WTh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1052.6717557251909" y="807.74647887323943"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="PDg-5T-vEI">
+            <objects>
+                <viewController id="8UU-B4-oi3" customClass="InfoViewController" customModule="iOSBA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sab-fj-rB1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="f1m-FL-b40"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ght-n6-AKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1992" y="808"/>
         </scene>
         <!--TVShows-->
         <scene sceneID="MbQ-ce-mY5">
@@ -83,6 +111,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pbo-q2-Mgf">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="barTintColor" systemColor="systemIndigoColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -102,6 +135,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZHt-qk-Ciu">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="barTintColor" systemColor="systemIndigoColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -120,6 +161,9 @@
         <image name="popcorn.fill" catalog="system" width="102" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
