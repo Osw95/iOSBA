@@ -2,7 +2,7 @@
 //  Tvshow+CoreDataClass.swift
 //  iOSBA
 //
-//  Created by Oswaldo Ferral on 19/07/23.
+//  Created by Oswaldo Ferral on 20/07/23.
 //
 //
 

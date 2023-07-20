@@ -146,8 +146,33 @@ extension MovieViewController: UITableViewDelegate {
         
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let favorite = UIContextualAction(style: .normal , title: "Favorite") { _ , _ , _ in
+            
+            guard let dataToFav = self.viewModel.tvShows.value?[indexPath.row] else { return }
+            
+            if self.viewModel.addCoreData(dataFav:dataToFav) {
+                
+                self.alertConfirm("Se agrego a favoritos", "")
+                
+            }
+            
+        }
+        
+        favorite.backgroundColor = .green
+        
+        let swipe = UISwipeActionsConfiguration(actions: [favorite])
+        
+        return swipe
+        
+    }
+    
     
 }
+
+
+// MARK: - ALERT MANAGER
 
 extension MovieViewController: alertProtocol{
     
@@ -168,6 +193,21 @@ extension MovieViewController: alertProtocol{
         alertController.addAction(okAction)
         
         self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func alertConfirm(_ title:String, _ msg:String){
+        
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+      
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+              
         
     }
     

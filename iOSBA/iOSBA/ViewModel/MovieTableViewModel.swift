@@ -16,11 +16,18 @@ protocol alertProtocol {
 
 final class MovieTableViewModel{
     
+    // MARK: -VARIABLES
+    
     var tvShows: Observable<[tvshow]> = Observable([])
     
     var delegate: alertProtocol?
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
 }
+
+
+// MARK: -REQUESTS
 
 extension MovieTableViewModel{
     
@@ -48,6 +55,113 @@ extension MovieTableViewModel{
                 print("Error al obtener los datos: \(error)")
                 
             }
+            
+        }
+        
+    }
+    
+}
+
+// MARK: -COREDATA
+
+extension MovieTableViewModel{
+    
+    func addCoreData (dataFav:tvshow) -> Bool{
+        
+        do {
+        
+           let newFavShow = Tvshow(context: self.context)
+            
+            newFavShow.id = Int64(dataFav.show.id)
+            
+            newFavShow.name = dataFav.show.name
+            
+            newFavShow.score = dataFav.score ?? 0.0
+            
+            newFavShow.favorite = true
+            
+            newFavShow.url = dataFav.show.url
+            
+            newFavShow.type = dataFav.show.type
+            
+            newFavShow.language = dataFav.show.language
+            
+            newFavShow.status = dataFav.show.status
+            
+            newFavShow.summary = dataFav.show.summary
+            
+            newFavShow.imageMedium = dataFav.show.image?.medium
+            
+            newFavShow.imageOriginal = dataFav.show.image?.original
+            
+            newFavShow.imdb = dataFav.show.externals?.imdb
+            
+            try self.context.save()
+            
+            return true
+            
+        } catch {
+
+            DispatchQueue.main.async {
+                self.delegate?.alertMsg("Hubo un problema al guardar este show de TV.", "¿Quieres intentar nuevamente?")
+            }
+            
+            return false
+            
+        }
+        
+    }
+    
+    func validateCoredata(_ datafav:tvshow) -> Bool {
+        /*
+        do {
+            
+            if let compareShow = datafav {
+                
+                self.context.delete(deleteShow)
+                
+                try context.save()
+                
+                return true
+                
+            }else{
+                
+                return false
+                
+            }
+            
+        } catch {
+            
+            return false
+            
+        }
+         */
+        
+        return true
+        
+    }
+    
+    func deleteCoredata(_ datafav:Tvshow?) -> Bool {
+        
+        do {
+            
+            if let deleteShow = datafav {
+                
+                self.context.delete(deleteShow)
+                
+                try context.save()
+                
+                return true
+                
+            }else{
+                
+                return false
+                
+            }
+            
+        } catch {
+            
+            return false
             
         }
         
