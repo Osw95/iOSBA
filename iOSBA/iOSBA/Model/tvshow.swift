@@ -32,7 +32,16 @@ struct imageShowInfo: Codable{
     let original: String?
 }
 
-///https://www.imdb.com/title/tt2622990/
 struct external: Codable {
     let imdb: String?
+}
+
+struct infoDetail{
+    var name:String?
+    var score:Float?
+    var language:String?
+    var type:String?
+    var summary:String?
+    var imdb:String?
+    var image:String?
 }

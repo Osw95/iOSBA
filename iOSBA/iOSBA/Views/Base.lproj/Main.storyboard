@@ -34,6 +34,7 @@
                     <navigationItem key="navigationItem" id="d3d-of-g4c"/>
                     <connections>
                         <outlet property="MovieTable" destination="C6m-yo-N3p" id="rmZ-SV-bSv"/>
+                        <segue destination="8UU-B4-oi3" kind="show" identifier="movieSegue" id="Sof-Za-eqj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -82,6 +83,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IpR-qk-SCZ"/>
+                    <connections>
+                        <segue destination="8UU-B4-oi3" kind="show" identifier="FavoriteSegue" id="YKh-FI-GFo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiD-Gs-WTh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,17 +94,50 @@
         <!--Info View Controller-->
         <scene sceneID="PDg-5T-vEI">
             <objects>
-                <viewController id="8UU-B4-oi3" customClass="InfoViewController" customModule="iOSBA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoViewVC" id="8UU-B4-oi3" customClass="InfoViewController" customModule="iOSBA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sab-fj-rB1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="scrollableAxes" translatesAutoresizingMaskIntoConstraints="NO" id="4ZN-ur-RWx">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JvH-M4-koe">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="900"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="900" id="N7e-U6-bLU"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JvH-M4-koe" firstAttribute="width" secondItem="4ZN-ur-RWx" secondAttribute="width" id="J3b-B6-yLI"/>
+                                    <constraint firstItem="JvH-M4-koe" firstAttribute="top" secondItem="4ZN-ur-RWx" secondAttribute="top" id="LVg-nO-mY6"/>
+                                    <constraint firstAttribute="trailing" secondItem="JvH-M4-koe" secondAttribute="trailing" id="hWI-1P-vdd"/>
+                                    <constraint firstItem="JvH-M4-koe" firstAttribute="leading" secondItem="4ZN-ur-RWx" secondAttribute="leading" id="ka6-cP-YZY"/>
+                                    <constraint firstItem="JvH-M4-koe" firstAttribute="centerX" secondItem="4ZN-ur-RWx" secondAttribute="centerX" id="tH3-Mn-4bI"/>
+                                    <constraint firstAttribute="bottom" secondItem="JvH-M4-koe" secondAttribute="bottom" id="zYP-fF-Mnf"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="f1m-FL-b40"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="4ZN-ur-RWx" firstAttribute="bottom" secondItem="f1m-FL-b40" secondAttribute="bottom" id="1e2-aI-IzM"/>
+                            <constraint firstItem="4ZN-ur-RWx" firstAttribute="trailing" secondItem="f1m-FL-b40" secondAttribute="trailing" id="MAB-p9-h4o"/>
+                            <constraint firstItem="4ZN-ur-RWx" firstAttribute="top" secondItem="f1m-FL-b40" secondAttribute="top" id="aIi-bG-owA"/>
+                            <constraint firstItem="4ZN-ur-RWx" firstAttribute="leading" secondItem="sab-fj-rB1" secondAttribute="leading" id="xcg-L2-2Qq"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="flk-hh-EDX"/>
+                    <connections>
+                        <outlet property="StackInfoView" destination="JvH-M4-koe" id="Fe5-NL-usE"/>
+                        <outlet property="scrollInfoView" destination="4ZN-ur-RWx" id="lsc-81-rIP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ght-n6-AKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1992" y="808"/>
+            <point key="canvasLocation" x="1991.6030534351144" y="807.74647887323943"/>
         </scene>
         <!--TVShows-->
         <scene sceneID="MbQ-ce-mY5">
@@ -136,6 +173,7 @@
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" systemColor="systemIndigoColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,6 +192,9 @@
             <point key="canvasLocation" x="138" y="808"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Sof-Za-eqj"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>

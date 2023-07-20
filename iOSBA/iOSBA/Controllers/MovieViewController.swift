@@ -37,8 +37,6 @@ class MovieViewController: UIViewController {
         
         observableMovieList()
         
-        
-        
     }
 
 
@@ -61,6 +59,8 @@ extension MovieViewController{
     
     
     func configureTable() {
+        
+        navigationController?.navigationBar.tintColor = .white
         
         refresh.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
         
@@ -119,6 +119,30 @@ extension MovieViewController: UITableViewDataSource{
 extension MovieViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var infoSend:infoDetail = infoDetail()
+        
+        infoSend.name = viewModel.tvShows.value?[indexPath.row].show.name
+        
+        infoSend.language = viewModel.tvShows.value?[indexPath.row].show.language
+        
+        infoSend.score = viewModel.tvShows.value?[indexPath.row].score
+        
+        infoSend.summary = viewModel.tvShows.value?[indexPath.row].show.summary
+        
+        infoSend.image = viewModel.tvShows.value?[indexPath.row].show.image?.original
+        
+        infoSend.type = viewModel.tvShows.value?[indexPath.row].show.type
+        
+        infoSend.imdb = viewModel.tvShows.value?[indexPath.row].show.externals?.imdb
+        
+       if let vc = self.storyboard?.instantiateViewController(withIdentifier: "InfoViewVC") as? InfoViewController {
+           
+           vc.infoData = infoSend
+           
+           self.navigationController?.pushViewController(vc, animated: true)
+           
+        }
         
     }
     
