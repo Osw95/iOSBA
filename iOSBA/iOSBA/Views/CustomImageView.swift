@@ -45,7 +45,7 @@ class CustomImageView: UIImageView {
                     
                 }
                 
-                print("imagen cargada desde dentro: \(newImage)")
+                ///print("imagen cargada desde dentro: \(newImage)")
                 
                 ///Una ves que sacamos la imagen, la guardamos en cache
                 self.imageCache.setObject(newImage, forKey: urlImage.absoluteString as AnyObject)

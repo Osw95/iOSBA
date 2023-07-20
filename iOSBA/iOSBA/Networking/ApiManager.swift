@@ -20,13 +20,13 @@ final class ApiManager {
         
         var task:URLSessionDataTask!
         
-        if let task = task {
+        /*if let task = task {
             task.cancel()
-        }
+        }*/
         
         guard let urlSearch =  resource else { return }
         
-        var urlConstructor = urlBase + urlSearch
+        let urlConstructor = urlBase + urlSearch
         
         #if DEBUG
 
@@ -34,7 +34,7 @@ final class ApiManager {
 
         #endif
         
-        var url = URL(string: urlConstructor)
+        let url = URL(string: urlConstructor)
         
         guard let url =  url else { return }
         
@@ -66,6 +66,7 @@ final class ApiManager {
         }
         
         task.resume()
+        
     }
     
 }

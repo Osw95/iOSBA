@@ -20,15 +20,72 @@ final class ShowsTableViewCell: UITableViewCell {
     @IBOutlet weak var labelCell: UILabel!
     
     
+    // MARK: -VARIABLES
+    
+    let imageCache = NSCache<AnyObject, AnyObject>()
+    
+    var task:URLSessionDataTask!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        accessoryType = .disclosureIndicator
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+}
 
-        // Configure the view for the selected state
+extension ShowsTableViewCell{
+    
+    func setupConfig(_ dataShow: tvshow?){
+        
+        labelCell.text = dataShow?.show.name
+                
+        guard let urlText = dataShow?.show.image?.medium else { return }
+                
+        guard let url = URL(string: urlText) else { return }
+        
+        imageCell.image = nil
+        
+        if let task = task {
+            task.cancel()
+        }
+        
+        if let imageFromCache = imageCache.object(forKey: url.absoluteString as AnyObject) as? UIImage {
+            
+            self.imageCell.image = imageFromCache
+            
+        }else{
+            
+            task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                
+                guard
+                    let data = data,
+                    let newImage = UIImage(data: data)
+                else {
+                    
+                    #if DEBUG
+                    
+                        print("No se puedo cargar la imagen")
+                    
+                    #endif
+                    
+                    return
+                    
+                }
+                
+                self.imageCache.setObject(newImage, forKey: url.absoluteString as AnyObject)
+                
+                DispatchQueue.main.async {
+                    self.imageCell.image = newImage
+                }
+                
+            }
+            
+        }
+
+        task.resume()
+                
     }
-
+    
 }

@@ -7,15 +7,23 @@
 
 import UIKit
 
+
 class MovieViewController: UIViewController {
+    
+    // MARK: -IBOUTLET
 
     @IBOutlet weak var MovieTable: UITableView!
     
+    // MARK: -VARIABLES
+    
     let viewModel = MovieTableViewModel()
+    
+    var refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        viewModel.delegate = self
         
         title = "TVshows"
         
@@ -26,6 +34,10 @@ class MovieViewController: UIViewController {
         viewModel.getMovies()
         
         configureTable()
+        
+        observableMovieList()
+        
+        
         
     }
 
@@ -39,15 +51,35 @@ extension MovieViewController{
     
     func observableMovieList(){
         
-        
+        viewModel.tvShows.bind { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.MovieTable.reloadData()
+            }
+        }
         
     }
     
     
     func configureTable() {
         
+        refresh.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
+        
+        MovieTable.addSubview(refresh)
+        
         let nib = UINib(nibName: "ShowsTableViewCell", bundle: nil)
         MovieTable.register(nib, forCellReuseIdentifier: ShowsTableViewCell.identifier)
+        
+    }
+    
+    @objc func pullToRefresh(send: UIRefreshControl){
+        
+        viewModel.getMovies()
+        
+        DispatchQueue.main.async {
+            
+            self.refresh.endRefreshing()
+            
+        }
         
     }
     
@@ -57,16 +89,25 @@ extension MovieViewController{
 
 extension MovieViewController: UITableViewDataSource{
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 16
+        return viewModel.tvShows.value?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowsTableViewCell.identifier, for: indexPath) as? ShowsTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowsTableViewCell.identifier, for: indexPath) as? ShowsTableViewCell else {
+            
+            return UITableViewCell()
+            
+        }
         
+        cell.setupConfig(viewModel.tvShows.value?[indexPath.row])
+            
         return cell
-        
         
     }
     
@@ -81,6 +122,30 @@ extension MovieViewController: UITableViewDelegate {
         
     }
     
+    
+}
+
+extension MovieViewController: alertProtocol{
+    
+    func alertMsg(_ title:String ,_ msg: String) {
+        
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            self.viewModel.getMovies()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (_) in
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
     
 }
 
