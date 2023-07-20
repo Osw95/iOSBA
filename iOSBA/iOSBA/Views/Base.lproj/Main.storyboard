@@ -84,6 +84,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="IpR-qk-SCZ"/>
                     <connections>
+                        <outlet property="FavoriteTable" destination="EhA-yR-0qd" id="SB4-DZ-hgR"/>
                         <segue destination="8UU-B4-oi3" kind="show" identifier="FavoriteSegue" id="YKh-FI-GFo"/>
                     </connections>
                 </viewController>
@@ -193,7 +194,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Sof-Za-eqj"/>
+        <segue reference="YKh-FI-GFo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>

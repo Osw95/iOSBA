@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct dataForCell<T> {
+    let name:String?
+    let image:String?
+}
+
 final class ShowsTableViewCell: UITableViewCell {
     
     // MARK: - IDENTIFIER
@@ -37,11 +42,11 @@ final class ShowsTableViewCell: UITableViewCell {
 
 extension ShowsTableViewCell{
     
-    func setupConfig(_ dataShow: tvshow?){
+    func setupConfig<T>(_ dataShow: dataForCell<T>?){
         
-        labelCell.text = dataShow?.show.name
+        labelCell.text = dataShow?.name
                 
-        guard let urlText = dataShow?.show.image?.medium else { return }
+        guard let urlText = dataShow?.image else { return }
                 
         guard let url = URL(string: urlText) else { return }
         

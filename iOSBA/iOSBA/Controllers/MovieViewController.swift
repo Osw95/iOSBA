@@ -20,12 +20,12 @@ class MovieViewController: UIViewController {
     
     var refresh = UIRefreshControl()
     
+    // MARK: CONTROLLER LIFECICLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        
-        title = "TVshows"
         
         MovieTable.dataSource = self
         
@@ -60,14 +60,17 @@ extension MovieViewController{
     
     func configureTable() {
         
-        navigationController?.navigationBar.tintColor = .white
-        
         refresh.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
         
         MovieTable.addSubview(refresh)
         
         let nib = UINib(nibName: "ShowsTableViewCell", bundle: nil)
+        
         MovieTable.register(nib, forCellReuseIdentifier: ShowsTableViewCell.identifier)
+        
+        title = "TVshows"
+        
+        navigationController?.navigationBar.tintColor = .white
         
     }
     
@@ -81,6 +84,13 @@ extension MovieViewController{
             
         }
         
+    }
+    
+    func loadDataCell(_ dataCell:tvshow) -> dataForCell<tvshow> {
+        
+        let resource = dataForCell<tvshow>(name: dataCell.show.name, image: dataCell.show.image?.medium)
+        
+        return resource
     }
     
 }
@@ -105,7 +115,11 @@ extension MovieViewController: UITableViewDataSource{
             
         }
         
-        cell.setupConfig(viewModel.tvShows.value?[indexPath.row])
+        if let dataSend = viewModel.tvShows.value?[indexPath.row]{
+            
+            cell.setupConfig(loadDataCell(dataSend))
+            
+        }
             
         return cell
         
@@ -160,14 +174,31 @@ extension MovieViewController: UITableViewDelegate {
             
         }
         
+        let delete = UIContextualAction(style: .destructive , title: "Delete") { _ , _ , _ in
+            
+            guard let dataToFav = self.viewModel.tvShows.value?[indexPath.row] else { return }
+            
+            self.alertDelete("¿Estas seguro de eliminarlo de favoritos?", "", dataToFav)
+            
+        }
+        
         favorite.backgroundColor = .green
         
-        let swipe = UISwipeActionsConfiguration(actions: [favorite])
-        
-        return swipe
+        if viewModel.validateCoredata(self.viewModel.tvShows.value?[indexPath.row]) {
+            
+            let swipe = UISwipeActionsConfiguration(actions: [delete])
+            
+            return swipe
+            
+        }else {
+            
+            let swipe = UISwipeActionsConfiguration(actions: [favorite])
+            
+            return swipe
+            
+        }
         
     }
-    
     
 }
 
@@ -201,14 +232,39 @@ extension MovieViewController: alertProtocol{
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
-      
+            
+            self.viewModel.getMovies()
+            
         }
         
         alertController.addAction(okAction)
         
         self.present(alertController, animated: true, completion: nil)
-              
         
+    }
+    
+    func alertDelete(_ title:String, _ msg:String, _ dataDelete:tvshow){
+        
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            
+            _ = self.viewModel.deleteCoredata(dataDelete)
+            
+            self.viewModel.getMovies()
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (_) in
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+            
     }
     
 }

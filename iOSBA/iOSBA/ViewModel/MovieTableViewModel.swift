@@ -7,6 +7,8 @@
 
 import UIKit
 
+import CoreData
+
 protocol alertProtocol {
     
     func alertMsg(_ title:String, _ msg:String)
@@ -22,7 +24,11 @@ final class MovieTableViewModel{
     
     var delegate: alertProtocol?
     
+    private var myFavoritesShows: [Tvshow]?
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    let fetchRequest: NSFetchRequest<Tvshow> = Tvshow.fetchRequest()
     
 }
 
@@ -112,59 +118,80 @@ extension MovieTableViewModel{
         
     }
     
-    func validateCoredata(_ datafav:tvshow) -> Bool {
-        /*
+    func validateCoredata(_ datafav:tvshow?) -> Bool {
+        
         do {
             
-            if let compareShow = datafav {
+            if let validateData = datafav {
                 
-                self.context.delete(deleteShow)
+                let predicate = NSPredicate(format: "id == %d", validateData.show.id)
                 
-                try context.save()
+                fetchRequest.predicate = predicate
                 
-                return true
+                self.myFavoritesShows = try context.fetch(fetchRequest)
                 
-            }else{
-                
-                return false
+                let count = try context.count(for: fetchRequest)
+               
+                return count > 0
                 
             }
             
+            self.delegate?.alertMsg("Oops, algo salió mal!", "")
+            
+            return false
+                
+                        
         } catch {
+            
+            self.delegate?.alertMsg("Oops, algo salió mal!", "")
             
             return false
             
         }
-         */
-        
-        return true
+         
         
     }
     
-    func deleteCoredata(_ datafav:Tvshow?) -> Bool {
+    func deleteCoredata(_ datafav:tvshow?) -> Bool {
         
         do {
+            self.myFavoritesShows = try context.fetch(fetchRequest)
             
             if let deleteShow = datafav {
                 
-                self.context.delete(deleteShow)
+                let predicate = NSPredicate(format: "id == %d", deleteShow.show.id)
                 
-                try context.save()
+                fetchRequest.predicate = predicate
                 
-                return true
+                self.myFavoritesShows = try context.fetch(fetchRequest)
                 
-            }else{
-                
-                return false
+                if let tvshowToDelete = self.myFavoritesShows?.first {
+                    
+                    self.context.delete(tvshowToDelete)
+                    
+                    try context.save()
+                    
+                    return true
+                    
+                }
                 
             }
             
+            self.delegate?.alertMsg("Hubo un problema al eliminar este show de TV.", "¿Quieres intentar nuevamente?")
+                
+            return false
+            
+            
         } catch {
+            
+            DispatchQueue.main.async {
+                self.delegate?.alertMsg("Hubo un problema al eliminar este show de TV.", "¿Quieres intentar nuevamente?")
+            }
             
             return false
             
         }
-        
+    
     }
     
 }
