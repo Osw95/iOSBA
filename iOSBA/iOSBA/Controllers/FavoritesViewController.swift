@@ -30,6 +30,10 @@ class FavoritesViewController: UIViewController {
         
         viewModel.getDataCoreData()
         
+        viewModel.delegateAlert = self
+        
+        viewModel.delegateDelete = self
+        
         FavoriteTable.dataSource = self
         
         FavoriteTable.delegate = self
@@ -173,7 +177,7 @@ extension FavoritesViewController:UITableViewDelegate {
             
             guard let dataToFav = self.viewModel.tvShowFavorites.value?[indexPath.row] else { return }
             
-            //self.alertDelete("¿Estas seguro de eliminarlo de favoritos?", "", dataToFav)
+            self.alertDelete("¿Estas seguro de eliminarlo de favoritos?", "", dataToFav)
             
         }
         
@@ -183,5 +187,57 @@ extension FavoritesViewController:UITableViewDelegate {
         
     }
 
+    
+}
+
+// MARK: ALERT MANAGER
+
+extension FavoritesViewController:alertProtocolFavorite, alertProtocoDeletelFavorite{
+    
+    func alertMsg(_ title: String, _ msg: String) {
+        
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            self.viewModel.getDataCoreData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (_) in
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
+    func alertDelete(_ title:String, _ msg:String, _ dataDelete:Tvshow){
+        
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            
+            _ = self.viewModel.deleteCoreData(deleteFavShow: dataDelete)
+            
+            self.viewModel.getDataCoreData()
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (_) in
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+            
+    }
+    
     
 }

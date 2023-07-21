@@ -9,12 +9,6 @@ import UIKit
 
 import CoreData
 
-protocol alertProtocol {
-    
-    func alertMsg(_ title:String, _ msg:String)
-    
-}
-
 
 final class MovieTableViewModel{
     
@@ -23,6 +17,8 @@ final class MovieTableViewModel{
     var tvShows: Observable<[tvshow]> = Observable([])
     
     var delegate: alertProtocol?
+    
+    var delegateDel: alertDeleteProtocol?
     
     private var myFavoritesShows: [Tvshow]?
     
@@ -69,6 +65,18 @@ extension MovieTableViewModel{
 }
 
 // MARK: -COREDATA
+
+protocol alertProtocol {
+    
+    func alertMsg(_ title:String, _ msg:String)
+    
+}
+
+protocol alertDeleteProtocol {
+    
+    func alertDelete(_ title:String, _ msg:String, _ dataDelete:tvshow)
+    
+}
 
 extension MovieTableViewModel{
     
@@ -136,14 +144,20 @@ extension MovieTableViewModel{
                 
             }
             
-            self.delegate?.alertMsg("Oops, algo salió mal!", "")
+            DispatchQueue.main.async {
+                self.delegate?.alertMsg("Oops, algo salió mal!", "")
+            }
+            
+            
             
             return false
                 
                         
         } catch {
             
-            self.delegate?.alertMsg("Oops, algo salió mal!", "")
+            DispatchQueue.main.async {
+                self.delegate?.alertMsg("Oops, algo salió mal!", "")
+            }
             
             return false
             
@@ -156,7 +170,7 @@ extension MovieTableViewModel{
         
         do {
             self.myFavoritesShows = try context.fetch(fetchRequest)
-            
+
             if let deleteShow = datafav {
                 
                 let predicate = NSPredicate(format: "id == %d", deleteShow.show.id)
@@ -175,17 +189,27 @@ extension MovieTableViewModel{
                     
                 }
                 
+                DispatchQueue.main.async {
+                    self.delegateDel?.alertDelete("Hubo un problema al eliminar este show de TV.", "¿Quieres intentar nuevamente?", deleteShow)
+                }
+                
             }
             
-            self.delegate?.alertMsg("Hubo un problema al eliminar este show de TV.", "¿Quieres intentar nuevamente?")
-                
+            DispatchQueue.main.async {
+                self.delegate?.alertMsg("Oops, algo salió mal!", "")
+            }
+            
             return false
             
             
         } catch {
             
-            DispatchQueue.main.async {
-                self.delegate?.alertMsg("Hubo un problema al eliminar este show de TV.", "¿Quieres intentar nuevamente?")
+            if let deleteShow = datafav {
+                
+                DispatchQueue.main.async {
+                    self.delegateDel?.alertDelete("Hubo un problema al eliminar este show de TV.", "¿Quieres intentar nuevamente?", deleteShow)
+                }
+                
             }
             
             return false

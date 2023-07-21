@@ -18,7 +18,7 @@
                     <rect key="frame" x="5" y="5" width="383" height="675"/>
                     <subviews>
                         <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y44-Gc-Ub1">
-                            <rect key="frame" x="0.0" y="111.66666666666666" width="383" height="453.33333333333337"/>
+                            <rect key="frame" x="0.0" y="111.66666666666666" width="383" height="458.33333333333337"/>
                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <wkWebViewConfiguration key="configuration">
                                 <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -56,14 +56,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyv-At-F77">
-                            <rect key="frame" x="154" y="603" width="75" height="35"/>
+                            <rect key="frame" x="154" y="608" width="75" height="30"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="IMDb" cornerStyle="large">
-                                <backgroundConfiguration key="background">
-                                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                </backgroundConfiguration>
-                            </buttonConfiguration>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="IMDb">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleShadowColor" systemColor="systemIndigoColor"/>
+                            </state>
                             <connections>
                                 <action selector="imdbUrl:" destination="iN0-l3-epB" eventType="touchUpInside" id="Z7C-di-no6"/>
                             </connections>

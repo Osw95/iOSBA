@@ -27,6 +27,8 @@ class MovieViewController: UIViewController {
         
         viewModel.delegate = self
         
+        viewModel.delegateDel = self
+        
         MovieTable.dataSource = self
         
         MovieTable.delegate = self
@@ -205,7 +207,7 @@ extension MovieViewController: UITableViewDelegate {
 
 // MARK: - ALERT MANAGER
 
-extension MovieViewController: alertProtocol{
+extension MovieViewController: alertProtocol, alertDeleteProtocol{
     
     func alertMsg(_ title:String ,_ msg: String) {
         
