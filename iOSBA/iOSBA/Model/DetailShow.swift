@@ -9,6 +9,7 @@ import Foundation
 
 
 struct infoDetail{
+    var id:Int64?
     var name:String?
     var score:Float?
     var language:String?
@@ -16,4 +17,7 @@ struct infoDetail{
     var summary:String?
     var imdb:String?
     var image:String?
+    var url: String?
+    var status: String?
+    var medium:String?
 }

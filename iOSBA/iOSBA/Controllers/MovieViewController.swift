@@ -138,6 +138,8 @@ extension MovieViewController: UITableViewDelegate {
         
         var infoSend:infoDetail = infoDetail()
         
+        infoSend.id = Int64(viewModel.tvShows.value?[indexPath.row].show.id ?? 0)
+        
         infoSend.name = viewModel.tvShows.value?[indexPath.row].show.name
         
         infoSend.language = viewModel.tvShows.value?[indexPath.row].show.language
@@ -146,7 +148,13 @@ extension MovieViewController: UITableViewDelegate {
         
         infoSend.summary = viewModel.tvShows.value?[indexPath.row].show.summary
         
+        infoSend.url = viewModel.tvShows.value?[indexPath.row].show.url
+        
+        infoSend.status = viewModel.tvShows.value?[indexPath.row].show.status
+        
         infoSend.image = viewModel.tvShows.value?[indexPath.row].show.image?.original
+        
+        infoSend.medium =  viewModel.tvShows.value?[indexPath.row].show.image?.medium
         
         infoSend.type = viewModel.tvShows.value?[indexPath.row].show.type
         

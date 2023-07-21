@@ -48,13 +48,11 @@ extension MovieTableViewModel{
                 self.tvShows.value = dataConsulted
               
                 
-                case .failure(let error):
+            case .failure(_):
                 
                 DispatchQueue.main.async {
                     self.delegate?.alertMsg("Ocurrió un error al consultar el servicio.", "¿Quieres intentar nuevamente?")
                 }
-                
-                print("Error al obtener los datos: \(error)")
                 
             }
             

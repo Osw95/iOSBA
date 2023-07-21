@@ -56,8 +56,6 @@ final class ApiManager {
                     
                 }catch{
                     
-                    print("Fue en el decoder")
-                    
                     completion(.failure(error))
                 }
                 

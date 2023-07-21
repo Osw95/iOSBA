@@ -130,8 +130,15 @@
                             <constraint firstItem="4ZN-ur-RWx" firstAttribute="leading" secondItem="sab-fj-rB1" secondAttribute="leading" id="xcg-L2-2Qq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="flk-hh-EDX"/>
+                    <navigationItem key="navigationItem" id="flk-hh-EDX">
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="7sa-Hw-wmR">
+                            <connections>
+                                <action selector="FavDelACT:" destination="8UU-B4-oi3" id="bYF-pC-cvN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="FavDelButton" destination="7sa-Hw-wmR" id="iud-PZ-j3J"/>
                         <outlet property="StackInfoView" destination="JvH-M4-koe" id="Fe5-NL-usE"/>
                         <outlet property="scrollInfoView" destination="4ZN-ur-RWx" id="lsc-81-rIP"/>
                     </connections>

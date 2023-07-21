@@ -44,9 +44,7 @@ class CustomImageView: UIImageView {
                     return
                     
                 }
-                
-                ///print("imagen cargada desde dentro: \(newImage)")
-                
+
                 ///Una ves que sacamos la imagen, la guardamos en cache
                 self.imageCache.setObject(newImage, forKey: urlImage.absoluteString as AnyObject)
                 
@@ -63,12 +61,5 @@ class CustomImageView: UIImageView {
         
     }
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

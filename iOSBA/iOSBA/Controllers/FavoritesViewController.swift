@@ -146,17 +146,25 @@ extension FavoritesViewController:UITableViewDelegate {
         
         var infoSend:infoDetail = infoDetail()
         
+        infoSend.id = viewModel.tvShowFavorites.value?[indexPath.row].id
+        
         infoSend.name = viewModel.tvShowFavorites.value?[indexPath.row].name
         
         infoSend.language = viewModel.tvShowFavorites.value?[indexPath.row].language
         
         infoSend.score = viewModel.tvShowFavorites.value?[indexPath.row].score
         
+        infoSend.status = viewModel.tvShowFavorites.value?[indexPath.row].status
+        
+        infoSend.url = viewModel.tvShowFavorites.value?[indexPath.row].url
+        
         infoSend.summary = viewModel.tvShowFavorites.value?[indexPath.row].summary
         
         infoSend.image = viewModel.tvShowFavorites.value?[indexPath.row].imageOriginal
         
         infoSend.type = viewModel.tvShowFavorites.value?[indexPath.row].type
+        
+        infoSend.medium = viewModel.tvShowFavorites.value?[indexPath.row].imageMedium
         
         infoSend.imdb = viewModel.tvShowFavorites.value?[indexPath.row].imdb
         

@@ -32,6 +32,7 @@
 		DB44C8222A6796DB00941DB9 /* FavoriteTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C8212A6796DB00941DB9 /* FavoriteTableViewModel.swift */; };
 		DB44C8242A6797C700941DB9 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C8232A6797C700941DB9 /* ApiManager.swift */; };
 		DB44C8262A679C1900941DB9 /* tvshow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C8252A679C1900941DB9 /* tvshow.swift */; };
+		DB95E1BA2A6A15CD00644375 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB95E1B92A6A15CD00644375 /* InfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		DB44C8212A6796DB00941DB9 /* FavoriteTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewModel.swift; sourceTree = "<group>"; };
 		DB44C8232A6797C700941DB9 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		DB44C8252A679C1900941DB9 /* tvshow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvshow.swift; sourceTree = "<group>"; };
+		DB95E1B92A6A15CD00644375 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 			children = (
 				DB44C81B2A67904C00941DB9 /* MovieTableViewModel.swift */,
 				DB44C8212A6796DB00941DB9 /* FavoriteTableViewModel.swift */,
+				DB95E1B92A6A15CD00644375 /* InfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				DB44C81A2A67529600941DB9 /* ShowsTableViewCell.swift in Sources */,
 				DB389FE42A693888002B60ED /* Tvshow+CoreDataClass.swift in Sources */,
 				DB389FE82A693BD8002B60ED /* DetailShow.swift in Sources */,
+				DB95E1BA2A6A15CD00644375 /* InfoViewModel.swift in Sources */,
 				DB44C8162A674AA800941DB9 /* FavoritesViewController.swift in Sources */,
 				DB44C81C2A67904C00941DB9 /* MovieTableViewModel.swift in Sources */,
 				DB44C7DF2A671DEE00941DB9 /* SceneDelegate.swift in Sources */,
