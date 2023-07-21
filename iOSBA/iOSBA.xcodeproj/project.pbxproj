@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		82E183CD2A68EC7100DACF8A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E183CC2A68EC7100DACF8A /* InfoViewController.swift */; };
 		82E183CF2A68ED2C00DACF8A /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E183CE2A68ED2C00DACF8A /* InfoView.xib */; };
+		82E183D22A6A49F900DACF8A /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 82E183D12A6A49F900DACF8A /* movies.json */; };
+		82E183D42A6A4A1A00DACF8A /* dataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E183D32A6A4A1A00DACF8A /* dataManager.swift */; };
 		DB389FE12A68FB6E002B60ED /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB389FE02A68FB6E002B60ED /* InfoView.swift */; };
 		DB389FE42A693888002B60ED /* Tvshow+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB389FE22A693888002B60ED /* Tvshow+CoreDataClass.swift */; };
 		DB389FE52A693888002B60ED /* Tvshow+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB389FE32A693888002B60ED /* Tvshow+CoreDataProperties.swift */; };
@@ -55,6 +57,8 @@
 /* Begin PBXFileReference section */
 		82E183CC2A68EC7100DACF8A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = iOSBA/Controllers/InfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		82E183CE2A68ED2C00DACF8A /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		82E183D12A6A49F900DACF8A /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
+		82E183D32A6A4A1A00DACF8A /* dataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
 		DB389FE02A68FB6E002B60ED /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		DB389FE22A693888002B60ED /* Tvshow+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tvshow+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB389FE32A693888002B60ED /* Tvshow+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tvshow+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -110,6 +114,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		82E183D02A6A486800DACF8A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				82E183D52A6A56BC00DACF8A /* JsonFiles */,
+				82E183D32A6A4A1A00DACF8A /* dataManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		82E183D52A6A56BC00DACF8A /* JsonFiles */ = {
+			isa = PBXGroup;
+			children = (
+				82E183D12A6A49F900DACF8A /* movies.json */,
+			);
+			path = JsonFiles;
+			sourceTree = "<group>";
+		};
 		DB389FE62A6938A1002B60ED /* CDModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +180,7 @@
 		DB44C7F52A671DF000941DB9 /* iOSBATests */ = {
 			isa = PBXGroup;
 			children = (
+				82E183D02A6A486800DACF8A /* Data */,
 				DB44C7F62A671DF000941DB9 /* iOSBATests.swift */,
 			);
 			path = iOSBATests;
@@ -342,6 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E183D22A6A49F900DACF8A /* movies.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB44C7F72A671DF000941DB9 /* iOSBATests.swift in Sources */,
+				82E183D42A6A4A1A00DACF8A /* dataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

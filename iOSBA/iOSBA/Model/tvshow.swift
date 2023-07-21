@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct TesList: Codable {
+    var results: [tvshow]
+}
+
 
 struct tvshow: Codable {
     let score:Float?

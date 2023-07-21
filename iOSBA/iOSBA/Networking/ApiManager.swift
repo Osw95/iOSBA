@@ -20,10 +20,6 @@ final class ApiManager {
         
         var task:URLSessionDataTask!
         
-        /*if let task = task {
-            task.cancel()
-        }*/
-        
         guard let urlSearch =  resource else { return }
         
         let urlConstructor = urlBase + urlSearch
