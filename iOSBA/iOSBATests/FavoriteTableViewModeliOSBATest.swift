@@ -42,6 +42,20 @@ final class FavoriteTableViewModeliOSBATest: XCTestCase {
         XCTAssertGreaterThan(valorIndex,0)
         
     }
+    
+    func testOfMethod_deleteCoreData_getTrue(){
+        
+        let BoolOfMethod = sut.deleteCoreData(deleteFavShow: sut.tvShowFavorites.value?[0])
+        
+        print(BoolOfMethod)
+        
+        XCTAssertTrue(BoolOfMethod)
+        
+    }
+    
+    
+  
+    
 
 
 }
