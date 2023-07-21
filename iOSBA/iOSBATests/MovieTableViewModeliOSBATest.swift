@@ -8,16 +8,16 @@
 import XCTest
 @testable import iOSBA
 
-final class iOSBATests: XCTestCase {
+final class MovieTableViewModeliOSBATest: XCTestCase {
     
     private var sut:MovieTableViewModel!
+    
+    let dataLoad = dataManager().movies
 
     override func setUpWithError() throws {
         super.setUp()
         
         sut = MovieTableViewModel()
-        
-        let dataLoad = dataManager().movies
         
         let tvshowList = try? JSONDecoder().decode([tvshow].self, from: dataLoad)
         
@@ -36,8 +36,6 @@ final class iOSBATests: XCTestCase {
     
     func testOfMethod_addCoreData_getTrue(){
         
-        let dataLoad = dataManager().movies
-        
         let tvshowList = try? JSONDecoder().decode([tvshow].self, from: dataLoad)
         
         guard let dataTest = tvshowList?[1] else { return }
@@ -49,14 +47,22 @@ final class iOSBATests: XCTestCase {
 
     func testOfMethod_deleteCoreData_getTrue() throws {
         
-        let dataLoad = dataManager().movies
-        
         let tvshowList = try? JSONDecoder().decode([tvshow].self, from: dataLoad)
         
         guard let dataTest = tvshowList?[0] else { return }
             
         XCTAssertTrue(sut.deleteCoredata(dataTest))
             
+        
+    }
+    
+    func testOfMethod_validateCoredata_getTrue() throws {
+        
+        let tvshowList = try? JSONDecoder().decode([tvshow].self, from: dataLoad)
+        
+        guard let dataTest = tvshowList?[1] else { return }
+            
+        XCTAssertTrue(sut.validateCoredata(dataTest))
         
     }
 

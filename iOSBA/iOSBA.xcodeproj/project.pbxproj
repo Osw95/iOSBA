@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820261532A6AE19B00AC63FA /* FavoriteTableViewModeliOSBATest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820261522A6AE19B00AC63FA /* FavoriteTableViewModeliOSBATest.swift */; };
 		82E183CD2A68EC7100DACF8A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E183CC2A68EC7100DACF8A /* InfoViewController.swift */; };
 		82E183CF2A68ED2C00DACF8A /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E183CE2A68ED2C00DACF8A /* InfoView.xib */; };
 		82E183D22A6A49F900DACF8A /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 82E183D12A6A49F900DACF8A /* movies.json */; };
@@ -22,7 +23,7 @@
 		DB44C7E72A671DEE00941DB9 /* iOSBA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB44C7E52A671DEE00941DB9 /* iOSBA.xcdatamodeld */; };
 		DB44C7E92A671DEF00941DB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB44C7E82A671DEF00941DB9 /* Assets.xcassets */; };
 		DB44C7EC2A671DEF00941DB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB44C7EA2A671DEF00941DB9 /* LaunchScreen.storyboard */; };
-		DB44C7F72A671DF000941DB9 /* iOSBATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C7F62A671DF000941DB9 /* iOSBATests.swift */; };
+		DB44C7F72A671DF000941DB9 /* MovieTableViewModeliOSBATest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C7F62A671DF000941DB9 /* MovieTableViewModeliOSBATest.swift */; };
 		DB44C8012A671DF000941DB9 /* iOSBAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C8002A671DF000941DB9 /* iOSBAUITests.swift */; };
 		DB44C8032A671DF000941DB9 /* iOSBAUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C8022A671DF000941DB9 /* iOSBAUITestsLaunchTests.swift */; };
 		DB44C8162A674AA800941DB9 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44C8152A674AA800941DB9 /* FavoritesViewController.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		820261522A6AE19B00AC63FA /* FavoriteTableViewModeliOSBATest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewModeliOSBATest.swift; sourceTree = "<group>"; };
 		82E183CC2A68EC7100DACF8A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = iOSBA/Controllers/InfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		82E183CE2A68ED2C00DACF8A /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		82E183D12A6A49F900DACF8A /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 		DB44C7EB2A671DEF00941DB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB44C7ED2A671DEF00941DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB44C7F22A671DF000941DB9 /* iOSBATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSBATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB44C7F62A671DF000941DB9 /* iOSBATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBATests.swift; sourceTree = "<group>"; };
+		DB44C7F62A671DF000941DB9 /* MovieTableViewModeliOSBATest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewModeliOSBATest.swift; sourceTree = "<group>"; };
 		DB44C7FC2A671DF000941DB9 /* iOSBAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSBAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB44C8002A671DF000941DB9 /* iOSBAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBAUITests.swift; sourceTree = "<group>"; };
 		DB44C8022A671DF000941DB9 /* iOSBAUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBAUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -181,7 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				82E183D02A6A486800DACF8A /* Data */,
-				DB44C7F62A671DF000941DB9 /* iOSBATests.swift */,
+				DB44C7F62A671DF000941DB9 /* MovieTableViewModeliOSBATest.swift */,
+				820261522A6AE19B00AC63FA /* FavoriteTableViewModeliOSBATest.swift */,
 			);
 			path = iOSBATests;
 			sourceTree = "<group>";
@@ -407,7 +410,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB44C7F72A671DF000941DB9 /* iOSBATests.swift in Sources */,
+				820261532A6AE19B00AC63FA /* FavoriteTableViewModeliOSBATest.swift in Sources */,
+				DB44C7F72A671DF000941DB9 /* MovieTableViewModeliOSBATest.swift in Sources */,
 				82E183D42A6A4A1A00DACF8A /* dataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
