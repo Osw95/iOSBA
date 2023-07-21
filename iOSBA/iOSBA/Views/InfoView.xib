@@ -22,7 +22,7 @@
                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <wkWebViewConfiguration key="configuration">
                                 <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                <wkPreferences key="preferences" javaScriptEnabled="NO" minimumFontSize="17"/>
+                                <wkPreferences key="preferences" javaScriptEnabled="NO" minimumFontSize="30"/>
                             </wkWebViewConfiguration>
                         </wkWebView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypn-QI-OQZ">
@@ -34,7 +34,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb7-dx-FDs">
                             <rect key="frame" x="0.0" y="32" width="185" height="19"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="185" id="Z8I-qJ-ncA"/>
+                                <constraint firstAttribute="width" secondItem="yb7-dx-FDs" secondAttribute="height" multiplier="185:19" id="sKy-DB-Nro"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>
@@ -49,7 +49,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCO-ts-kvM">
                             <rect key="frame" x="200" y="29" width="183" height="19"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="183" id="Jz1-P3-rnc"/>
+                                <constraint firstAttribute="width" secondItem="hCO-ts-kvM" secondAttribute="height" multiplier="183:19" id="CiD-Dx-XPM"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>
